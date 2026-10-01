@@ -1,0 +1,1386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Projeckt Debs | Design & Construction</title>
+
+<style>
+    .project-image-card {
+  padding: 0;
+  min-height: 0;
+}
+
+.project-image-card img {
+  width: 100%;
+  height: 280px;
+  display: block;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.project-image-card:hover img {
+  transform: scale(1.04);
+}
+
+.project-content {
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+}
+
+.project-content h3 {
+  margin: 12px 0 8px;
+}
+
+.project-content p {
+  margin: 0;
+}
+:root{
+  --ink:#17221f;
+  --muted:#5f6965;
+  --paper:#f6f4ef;
+  --surface:#fff;
+  --accent:#c97928;
+  --accent2:#263d36;
+  --line:#dedbd3;
+  --soft:#ebe7de;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:0 28px;
+}
+
+/* NAVIGATION */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(246,244,239,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+
+.mark{
+  width:42px;
+  height:42px;
+  background:var(--accent2);
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:15px;
+  letter-spacing:.08em;
+}
+
+.brand small{
+  display:block;
+  font-size:10px;
+  letter-spacing:.18em;
+  color:var(--muted);
+  margin-top:2px;
+  font-weight:700;
+}
+
+.links{
+  display:flex;
+  gap:25px;
+  font-size:13px;
+  font-weight:700;
+  color:#414a46;
+}
+
+.links a:hover{
+  color:var(--accent);
+}
+
+.menu{
+  display:none;
+  border:1px solid var(--line);
+  background:white;
+  padding:9px 11px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:650px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:55px;
+  padding:76px 0;
+}
+
+.eyebrow{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(46px,6.3vw,82px);
+  line-height:.93;
+  letter-spacing:-.065em;
+  margin:0 0 24px;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:650px;
+  margin:0 0 30px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 19px;
+  border:1px solid var(--ink);
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+  display:inline-block;
+}
+
+.btn.primary{
+  background:var(--accent2);
+  color:white;
+  border-color:var(--accent2);
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* HERO ART */
+
+.hero-art{
+  min-height:500px;
+  background:var(--accent2);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:34px;
+}
+
+.hero-art:before{
+  content:"";
+  position:absolute;
+  width:440px;
+  height:440px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  right:-170px;
+  top:-100px;
+}
+
+.hero-art:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    145deg,
+    transparent 30%,
+    rgba(255,255,255,.07) 30.2%,
+    transparent 30.5%,
+    transparent 62%,
+    rgba(255,255,255,.05) 62.2%,
+    transparent 62.5%
+  );
+}
+
+.building{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:340px;
+}
+
+.tower{
+  position:absolute;
+  bottom:0;
+  left:12%;
+  width:52%;
+  height:78%;
+  background:#e9e4d8;
+  clip-path:polygon(
+    9% 8%,
+    91% 8%,
+    100% 100%,
+    0 100%
+  );
+  padding:32px;
+}
+
+.tower:before{
+  content:"";
+  position:absolute;
+  inset:30px;
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent 0 36px,
+      #24362f 37px 44px,
+      transparent 45px 81px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 40px,
+      #24362f 41px 47px,
+      transparent 48px 84px
+    );
+  opacity:.9;
+}
+
+.slab{
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:68%;
+  height:18%;
+  background:#d3cec2;
+}
+
+.crane{
+  position:absolute;
+  right:4%;
+  top:13%;
+  width:7px;
+  height:66%;
+  background:#d98a3d;
+}
+
+.crane:before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:-2px;
+  width:300px;
+  height:6px;
+  background:#d98a3d;
+}
+
+.crane:after{
+  content:"";
+  position:absolute;
+  top:4px;
+  right:255px;
+  width:2px;
+  height:105px;
+  background:#d98a3d;
+}
+
+.hero-label{
+  position:relative;
+  z-index:4;
+  color:white;
+  max-width:260px;
+}
+
+.hero-label strong{
+  font-size:30px;
+  display:block;
+  letter-spacing:-.04em;
+}
+
+.hero-label span{
+  font-size:12px;
+  opacity:.72;
+  line-height:1.5;
+}
+
+/* SECTIONS */
+
+section{
+  padding:100px 0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  align-items:end;
+  margin-bottom:44px;
+}
+
+.section-head h2{
+  font-size:46px;
+  letter-spacing:-.055em;
+  margin:0;
+}
+
+.section-head p{
+  max-width:470px;
+  color:var(--muted);
+  line-height:1.7;
+  margin:0;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:70px;
+}
+
+.bigquote{
+  font-size:30px;
+  line-height:1.18;
+  letter-spacing:-.04em;
+  border-left:4px solid var(--accent);
+  padding-left:24px;
+}
+
+.bodycopy{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-top:35px;
+}
+
+.stat{
+  background:white;
+  padding:25px;
+}
+
+.stat b{
+  font-size:32px;
+  display:block;
+}
+
+.stat span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* VALUES */
+
+.values{
+  background:var(--accent2);
+  color:white;
+}
+
+.values .section-head p{
+  color:#c5d0cb;
+}
+
+.valuegrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.15);
+}
+
+.value{
+  background:var(--accent2);
+  padding:28px;
+  min-height:170px;
+}
+
+.value b{
+  display:block;
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.value p{
+  font-size:13px;
+  line-height:1.65;
+  color:#c8d0cc;
+  margin:0;
+}
+
+/* SERVICES */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.service{
+  background:white;
+  border:1px solid var(--line);
+  padding:28px;
+  min-height:190px;
+  transition:.2s;
+}
+
+.service:hover{
+  transform:translateY(-4px);
+  border-color:#c9bda9;
+}
+
+.num{
+  font-size:11px;
+  color:var(--accent);
+  font-weight:900;
+  letter-spacing:.14em;
+}
+
+.service h3{
+  font-size:21px;
+  letter-spacing:-.03em;
+  margin:40px 0 10px;
+}
+
+.service p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.65;
+  margin:0;
+}
+
+/* PROJECTS */
+
+.projects{
+  background:#e9e5dc;
+}
+
+.projectgrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.project{
+  background:white;
+  min-height:280px;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+}
+
+.project:before{
+  content:"";
+  position:absolute;
+  inset:auto -20px -70px auto;
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  background:var(--soft);
+}
+
+.project small{
+  color:var(--accent);
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.project h3{
+  font-size:22px;
+  max-width:260px;
+  margin:55px 0 8px;
+  position:relative;
+}
+
+.project p{
+  font-size:12px;
+  color:var(--muted);
+  position:relative;
+  max-width:290px;
+  line-height:1.6;
+}
+
+.project.wide{
+  grid-column:span 2;
+}
+
+/* TEAM */
+
+.teamgrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.person{
+  border-top:2px solid var(--ink);
+  padding:18px 0;
+}
+
+.person b{
+  display:block;
+  font-size:14px;
+}
+
+.person span{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+  display:block;
+  margin-top:7px;
+}
+
+/* CONTACT */
+
+.contact{
+  background:var(--accent);
+  color:white;
+}
+
+.contactgrid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:70px;
+  align-items:center;
+}
+
+.contact h2{
+  font-size:clamp(45px,6vw,75px);
+  line-height:.95;
+  letter-spacing:-.06em;
+  margin:0;
+}
+
+.contact p{
+  color:#fff0e3;
+  line-height:1.7;
+}
+
+.contactcard{
+  background:white;
+  color:var(--ink);
+  padding:30px;
+}
+
+.contactrow{
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+
+.contactrow:last-child{
+  border:0;
+}
+
+.contactrow small{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--muted);
+  font-weight:800;
+  font-size:9px;
+  margin-bottom:5px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111a17;
+  color:#b8c2be;
+  padding:28px 0;
+  font-size:11px;
+}
+
+.footerin{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+/* MOBILE */
+
+.mobile-links{
+  display:none;
+}
+
+@media(max-width:850px){
+
+  .links{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:55px 0;
+  }
+
+  .hero-art{
+    min-height:400px;
+  }
+
+  .about,
+  .contactgrid{
+    grid-template-columns:1fr;
+  }
+
+  .services,
+  .projectgrid{
+    grid-template-columns:1fr;
+  }
+
+  .project.wide{
+    grid-column:auto;
+  }
+
+  .valuegrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .teamgrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head p{
+    margin-top:15px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .footerin{
+    display:block;
+  }
+
+  .footerin span{
+    display:block;
+    margin-top:8px;
+  }
+}
+
+@media(max-width:520px){
+
+  .wrap{
+    padding:0 18px;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .hero-art{
+    min-height:340px;
+  }
+
+  .valuegrid,
+  .teamgrid{
+    grid-template-columns:1fr;
+  }
+
+  .section-head h2{
+    font-size:38px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+<header>
+  <div class="wrap nav">
+
+    <a class="brand" href="#home">
+      <span class="mark">PD</span>
+
+      <span>
+        PROJECKT DEBS
+        <small>DESIGN & CONSTRUCTION</small>
+      </span>
+    </a>
+
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button
+      class="menu"
+      aria-label="Open menu"
+      onclick="toggleMenu()">
+      ☰
+    </button>
+
+  </div>
+
+  <div class="mobile-links wrap">
+    <a href="#about">About</a> ·
+    <a href="#services">Services</a> ·
+    <a href="#projects">Projects</a> ·
+    <a href="#team">Team</a> ·
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section id="home">
+
+  <div class="wrap hero">
+
+    <div>
+
+      <div class="eyebrow">
+        Ghanaian • Construction • Project Management
+      </div>
+
+      <h1>
+        We build ideas into lasting places.
+      </h1>
+
+      <p>
+        Projeckt Debs is a Ghanaian construction and project management
+        company focused on design, construction, supervision,
+        refurbishment and real estate development.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn primary" href="#contact">
+          Start a project
+        </a>
+
+        <a class="btn" href="#projects">
+          View projects
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-art">
+
+      <div class="building">
+
+        <div class="tower"></div>
+
+        <div class="slab"></div>
+
+        <div class="crane"></div>
+
+      </div>
+
+      <div class="hero-label">
+
+        <strong>
+          Built to stand.
+        </strong>
+
+        <span>
+          Quality, precision, innovation, pragmatism,
+          sustainability and safety.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <h2>
+        Built around<br>
+        your objective.
+      </h2>
+
+      <p>
+        Since 2019, Projeckt Debs has worked across diverse
+        civil engineering and construction fields, with a focus
+        on transforming clients’ ideas into projects that stand
+        the test of time.
+      </p>
+
+    </div>
+
+
+    <div class="about">
+
+      <div class="bigquote">
+        “We build houses; we build people.”
+      </div>
+
+      <div>
+
+        <p class="bodycopy">
+          The company is wholly Ghanaian owned and was incorporated
+          in December 2019. Its work spans general construction,
+          civil works, architectural design, project management,
+          supervision, refurbishment and real estate development.
+        </p>
+
+        <p class="bodycopy">
+          Its stated vision is to become a leading construction
+          and service provider in local and international markets
+          through technology, quality, speed, flexibility and
+          competitive pricing.
+        </p>
+
+
+        <div class="stats">
+
+          <div class="stat">
+            <b>2019</b>
+            <span>Incorporated</span>
+          </div>
+
+          <div class="stat">
+            <b>13+</b>
+            <span>Staff strength stated in profile</span>
+          </div>
+
+          <div class="stat">
+            <b>7</b>
+            <span>Core values listed</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VALUES -->
+
+<section class="values">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <h2>
+        What guides us.
+      </h2>
+
+      <p>
+        The company profile identifies these principles and
+        values as central to how Projeckt Debs works and
+        serves clients.
+      </p>
+
+    </div>
+
+
+    <div class="valuegrid">
+
+      <div class="value">
+        <b>Quality</b>
+        <p>Superior services without compromising standards.</p>
+      </div>
+
+      <div class="value">
+        <b>Timelines</b>
+        <p>Working to meet customer demands and project expectations.</p>
+      </div>
+
+      <div class="value">
+        <b>Integrity</b>
+        <p>Truth, honesty, commitment and ethical standards.</p>
+      </div>
+
+      <div class="value">
+        <b>Creativity & Innovation</b>
+        <p>Fresh ideas combined with modern technologies.</p>
+      </div>
+
+      <div class="value">
+        <b>Excellence</b>
+        <p>Exceptional work, continuous learning and improvement.</p>
+      </div>
+
+      <div class="value">
+        <b>Equity</b>
+        <p>Fair treatment and long-term relationships.</p>
+      </div>
+
+      <div class="value">
+        <b>People’s People</b>
+        <p>Respect and high regard for customers.</p>
+      </div>
+
+      <div class="value">
+        <b>Work Principles</b>
+        <p>Precise, innovative, pragmatic, sustainable and safe.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <h2>
+        What we do.
+      </h2>
+
+      <p>
+        From design and analysis to construction, supervision
+        and property documentation, the profile outlines a
+        broad range of services.
+      </p>
+
+    </div>
+
+
+    <div class="services">
+
+      <div class="service">
+        <span class="num">01 / CORE</span>
+
+        <h3>
+          General Construction
+        </h3>
+
+        <p>
+          Building construction, civil works, refurbishment
+          and development services.
+        </p>
+      </div>
+
+
+      <div class="service">
+        <span class="num">02 / CORE</span>
+
+        <h3>
+          Project Management
+        </h3>
+
+        <p>
+          Organized management, supervision and delivery
+          of construction projects.
+        </p>
+      </div>
+
+
+      <div class="service">
+        <span class="num">03 / CORE</span>
+
+        <h3>
+          Building Design
+        </h3>
+
+        <p>
+          Architectural and building design services supported
+          by technical professionals.
+        </p>
+      </div>
+
+
+      <div class="service">
+        <span class="num">04 / TECHNICAL</span>
+
+        <h3>
+          Surveying & Analysis
+        </h3>
+
+        <p>
+          Land surveying, quantity surveying and structural analysis.
+        </p>
+      </div>
+
+
+      <div class="service">
+        <span class="num">05 / PROPERTY</span>
+
+        <h3>
+          Real Estate Development
+        </h3>
+
+        <p>
+          Development of houses, factories, offices and related
+          property opportunities.
+        </p>
+      </div>
+
+
+      <div class="service">
+        <span class="num">06 / DOCUMENTS</span>
+
+        <h3>
+          Land & Building Documents
+        </h3>
+
+        <p>
+          Assistance with site plans, indentures and land
+          certificates for property transactions.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="projects">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <h2>
+        Selected work.
+      </h2>
+
+      <p>
+        Examples listed in the company profile include warehouses,
+        factories, offices, towers and residential developments.
+      </p>
+
+    </div>
+
+
+    <div class="projectgrid">
+
+  <article class="project project-image-card">
+    <img src="images/project-1-multi-unit-residential.jpg" 
+         alt="Multi-Unit Residential Development">
+    <div class="project-content">
+      <small>Residential Development</small>
+      <h3>Multi-Unit Residential Development</h3>
+      <p>Modern multi-storey residential construction featuring multiple units and balconies.</p>
+    </div>
+  </article>
+
+  <article class="project project-image-card">
+    <img src="images/project-2-residential-commercial.jpg" 
+         alt="Residential and Commercial Development">
+    <div class="project-content">
+      <small>Mixed Development</small>
+      <h3>Residential & Commercial Development</h3>
+      <p>Contemporary development combining residential and commercial spaces.</p>
+    </div>
+  </article>
+
+  <article class="project project-image-card">
+    <img src="images/project-3-residential-house.jpg" 
+         alt="Residential Construction">
+    <div class="project-content">
+      <small>Residential Construction</small>
+      <h3>Residential Construction</h3>
+      <p>Residential building construction with detailed exterior finishing.</p>
+    </div>
+  </article>
+
+  <article class="project project-image-card">
+    <img src="images/project-4-construction-site.jpg" 
+         alt="Construction Works and Equipment">
+    <div class="project-content">
+      <small>Construction Works</small>
+      <h3>Construction Works & Equipment</h3>
+      <p>Active construction works supported by heavy equipment and site operations.</p>
+    </div>
+  </article>
+
+</div>
+
+      
+      
+
+
+<!-- TEAM -->
+
+<section id="team">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <h2>
+        People behind<br>
+        the projects.
+      </h2>
+
+      <p>
+        The profile describes a multidisciplinary team including
+        architects, engineers, quantity surveyors, technicians
+        and financial personnel.
+      </p>
+
+    </div>
+
+
+    <div class="teamgrid">
+
+      <div class="person">
+        <b>Henry Adjei-Debra</b>
+        <span>
+          Managing Director<br>
+          HND Building Technology
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Ing. Daniel Dzeagu</b>
+        <span>
+          Deputy Managing Director<br>
+          MSc Geotechnical Engineering
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Ing. Samuel Asafo</b>
+        <span>
+          Deputy Managing Director<br>
+          MSc Structural Engineering
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Ing. Henry Quatey</b>
+        <span>
+          Project Manager<br>
+          BTech Civil Engineering
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Frank Kofi Bosu</b>
+        <span>
+          Quantity Surveyor<br>
+          MSc Surveying & Construction Economics
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Ing. Enoch Adjei Laryea</b>
+        <span>
+          Site Engineer<br>
+          BSc Civil/Structural Engineering
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Ms. Honeychild Acquaye</b>
+        <span>
+          Accountant<br>
+          Chartered Accountant (ICAG)
+        </span>
+      </div>
+
+      <div class="person">
+        <b>Furor Alex</b>
+        <span>
+          Geodetic Engineer<br>
+          BSc Geomatic Engineering
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+  <div class="wrap contactgrid">
+
+    <div>
+
+      <div class="eyebrow" style="color:#fff">
+        Let’s build
+      </div>
+
+      <h2>
+        Have a project in mind?
+      </h2>
+
+      <p>
+        Talk to Projeckt Debs about construction,
+        project management, design, supervision
+        or property services.
+      </p>
+
+      <a
+        class="btn"
+        style="background:#fff;border-color:#fff;margin-top:12px"
+        href="mailto:debsprojeckt@gmail.com">
+
+        Email Projeckt Debs
+
+      </a>
+
+    </div>
+
+
+    <div class="contactcard">
+
+      <div class="contactrow">
+        <small>Office</small>
+        East Legon Bawleshie, Accra, Ghana
+      </div>
+
+      <div class="contactrow">
+        <small>Phone</small>
+        0541466666
+      </div>
+
+      <div class="contactrow">
+        <small>Email</small>
+        debsprojeckt@gmail.com
+      </div>
+
+      <div class="contactrow">
+        <small>Postal Address</small>
+        P. O. Box 115 A/25, Kanda, Accra
+      </div>
+
+      <div class="contactrow">
+        <small>Registration</small>
+        BN671562019
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap footerin">
+
+    <span>
+      © Projeckt Debs — Design & Construction
+    </span>
+
+    <span>
+      Ghanaian owned • Incorporated 2019
+    </span>
+
+  </div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+function toggleMenu(){
+
+  const menu = document.querySelector(".mobile-links");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+
+}
+
+document
+  .querySelectorAll(".mobile-links a")
+  .forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      document.querySelector(".mobile-links").style.display = "none";
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
